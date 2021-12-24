@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="description" content="Место">
+  <meta name="keywords" content="html, css, grid, flex, javaScript">
+  <meta name="author" content="Олег Новиков">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <link rel="stylesheet" href="./style.css">
   <title>Место</title>
 </head>
 <body>
-
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/Logo.svg" alt="Логотип">
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип">
     </header>
 
     <main class="content">
@@ -39,9 +40,10 @@
               </figcaption>
             </figure>
           </li>
+
           <li>
             <figure class="element">
-              <img src="./images/gora.png" alt="Гора Эльбрус" class="element__img">
+              <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
               <figcaption class="element__group">
                 <h2 class="element__text">Гора Эльбрус</h2>
                 <div class="element__like">
@@ -50,6 +52,7 @@
               </figcaption>
             </figure>
           </li>
+
           <li>
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
@@ -61,9 +64,10 @@
               </figcaption>
             </figure>
           </li>
+
           <li>
             <figure class="element">
-              <img src="./images/gora.png" alt="Гора Эльбрус" class="element__img">
+              <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
               <figcaption class="element__group">
                 <h2 class="element__text">Гора Эльбрус</h2>
                 <div class="element__like">
@@ -72,6 +76,7 @@
               </figcaption>
             </figure>
           </li>
+
           <li>
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
@@ -83,11 +88,12 @@
               </figcaption>
             </figure>
           </li>
+
           <li>
             <figure class="element">
-              <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__img">
+              <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Карачаево-Ч...</h2>
+                <h2 class="element__text">Карачаево-Черкессия</h2>
                 <div class="element__like">
                   <button class="element__like-btn element__btn-like-active"></button>
                 </div>
@@ -102,25 +108,19 @@
       </footer>
     </main>
 
-    
-    <div class="popup popup__opened">
+    <div class="popup">
       <div class="popup__container">
         <form action="" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
           <fieldset class="popup__fieldset">
-            <input type="text" class="popup__input" placeholder="Имя" minlength="3" maxlength="25" required>
-            <input type="text" class="popup__input" placeholder="Профессия" required>
+            <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" minlength="3" maxlength="25" required>
+            <input type="text" class="popup__input popup__input_type_about" placeholder="Профессия" required>
           </fieldset>
-          <button class="popup__btn-save"> Сохранить</button>
+          <button class="popup__btn-save">Сохранить</button>
         </form>
         <button class="popup__btn-close"></button>
       </div>
   </div>
-
-
-
-
-  
 
   </div>
   <script src="./pages/index.js"></script>
