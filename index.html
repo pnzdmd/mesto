@@ -21,10 +21,10 @@
         <img src="./images/Avatar__Kusto.jpg" alt="Аватар Кусто" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__btn-edit"></button>
+          <button class="profile__btn-edit" type="button"></button>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="profile__btn-add"></button>
+        <button class="profile__btn-add" type="button"></button>
       </section>
 
       <section class="elements">
@@ -33,9 +33,9 @@
             <figure class="element">
               <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Карачаевск</h2>
+                <h2 class="element__title">Карачаевск</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -45,9 +45,9 @@
             <figure class="element">
               <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Гора Эльбрус</h2>
+                <h2 class="element__title">Гора Эльбрус</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -57,9 +57,9 @@
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Домбай</h2>
+                <h2 class="element__title">Домбай</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -69,9 +69,9 @@
             <figure class="element">
               <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Гора Эльбрус</h2>
+                <h2 class="element__title">Гора Эльбрус</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -81,9 +81,9 @@
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Домбай</h2>
+                <h2 class="element__title">Домбай</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -93,9 +93,9 @@
             <figure class="element">
               <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="element__img">
               <figcaption class="element__group">
-                <h2 class="element__text">Карачаево-Черкессия</h2>
+                <h2 class="element__title">Карачаево-Черкессия</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__btn-like-active"></button>
+                  <button class="element__like-btn element__like-btn_active" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -110,11 +110,11 @@
 
     <div class="popup">
       <div class="popup__container">
-        <form class="popup__form">
+        <form class="popup__form" name="profile">
           <h2 class="popup__title">Редактировать профиль</h2>
           <fieldset class="popup__fieldset">
-            <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" minlength="3" maxlength="25" required>
-            <input type="text" class="popup__input popup__input_type_about" placeholder="Профессия" required>
+            <input type="text" class="popup__input popup__input_type_name" name="title" placeholder="Имя" minlength="3" maxlength="25" required>
+            <input type="text" class="popup__input popup__input_type_about" name="subtitle" placeholder="Профессия" required>
           </fieldset>
           <button class="popup__btn-save">Сохранить</button>
         </form>
@@ -123,6 +123,6 @@
   </div>
 
   </div>
-  <script src="./pages/index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
