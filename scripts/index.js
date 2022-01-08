@@ -11,25 +11,22 @@ let jobInput = document.querySelector('.popup__input_type_about');
 
 
 // ОТКРЫТИЕ МОДАЛЬНОГО ОКНА
-function openPopup() {
+btnEdit.addEventListener('click', function (evt) {
+  evt.preventDefault();
   popup.classList.add('popup_opened');
   nameInput.value = profName.textContent;
   jobInput.value = profAbout.textContent;
-}
+});
 // ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА
-function closePopup() {
+btnClose.addEventListener('click', function() {
   popup.classList.remove('popup_opened');
-}
-
-btnEdit.addEventListener('click', openPopup);
-btnClose.addEventListener('click', closePopup);
+});
 
 // изменение данных профиля
-
 function formSubmitHandler (evt) {
-  evt.preventDefault();
+  popup.classList.remove('popup_opened');
   profName.textContent = nameInput.value;
   profAbout.textContent = jobInput.value;
-  btnSave.addEventListener('click', closePopup);
+  evt.preventDefault();
 };
 formElement.addEventListener('submit', formSubmitHandler);
