@@ -32,10 +32,11 @@
           <li>
             <figure class="element">
               <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Карачаевск</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -44,10 +45,11 @@
           <li>
             <figure class="element">
               <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Гора Эльбрус</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -56,10 +58,11 @@
           <li>
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Домбай</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -68,10 +71,11 @@
           <li>
             <figure class="element">
               <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Гора Эльбрус</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -80,10 +84,11 @@
           <li>
             <figure class="element">
               <img src="./images/dombai.png" alt="Домбай" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Домбай</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -92,10 +97,11 @@
           <li>
             <figure class="element">
               <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="element__img">
+              <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
               <figcaption class="element__group">
                 <h2 class="element__title">Карачаево-Черкессия</h2>
                 <div class="element__like">
-                  <button class="element__like-btn element__like-btn_active" type="button"></button>
+                  <button class="element__like-btn" type="button"></button>
                 </div>
               </figcaption>
             </figure>
@@ -121,6 +127,20 @@
         <button class="popup__btn-close" type="button"></button>
       </div>
   </div>
+
+  <div class="popup popup_card">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_card" name="profile">
+        <fieldset class="popup__fieldset">
+          <input type="text" class="popup__input popup__input_type_name" name="title" placeholder="Название" minlength="3" maxlength="25" required>
+          <input type="text" class="popup__input popup__input_type_about" name="subtitle" placeholder="Ссылка на картинку" required>
+        </fieldset>
+        <button class="popup__btn-save" type="submit">Создать</button>
+      </form>
+      <button class="popup__btn-close popup__btn-close_card" type="button"></button>
+    </div>
+</div>
 
   </div>
   <script src="./scripts/index.js"></script>

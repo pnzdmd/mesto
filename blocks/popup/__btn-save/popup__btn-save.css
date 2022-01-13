@@ -11,7 +11,7 @@
   text-align: center;
   color: #FFFFFF;
   cursor: pointer;
-  transition: .8s;
+  transition: opacity .8s linear;
 }
 .popup__btn-save:hover {
   opacity: .8;
