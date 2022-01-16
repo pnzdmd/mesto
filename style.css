@@ -1,0 +1,24 @@
+.popup__image-container {
+  margin: 15% auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 75vw;
+  max-height: 75vw;
+  position: relative;
+}
+
+
+.popup__image {
+  position: relative;
+}
+
+.popup__image-title {
+  margin: 10px 0 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
