@@ -30,7 +30,7 @@ const initialCards = [
 // изменение профиля
 const btnEditProfile = document.querySelector('.profile__btn-edit');
 const btnCloseProfile = document.querySelector('.popup__btn-close');
-const popupProfile = document.querySelector('.popup__profile');
+const popupProfile = document.querySelector('.popup_profile');
 const profName = document.querySelector('.profile__name');
 const profAbout = document.querySelector('.profile__about');
 const formElement = document.querySelector('.popup__form');
@@ -42,14 +42,14 @@ const jobInput = document.querySelector('.popup__input_type_about');
 const cardTemplate = document.querySelector('#template-card');
 const btnAdd = document.querySelector('.profile__btn-add');
 const btnCloseCard = document.querySelector('.popup__btn-close_card');
-const popupCard = document.querySelector('.popup__card');
+const popupCard = document.querySelector('.popup_card');
 const cardsContainer = document.querySelector('.elements__list');
 const formPopupCard = document.querySelector('.popup__form_card');
-const nameCard = document.querySelector('.popup__input_type__card');
+const nameCard = document.querySelector('.popup__input_type_card');
 const descrCard = document.querySelector('.popup__input_type_descr');
 
-
-const popupImg = document.querySelector('.popup__img');
+// попап с увелечением изображений
+const popupImg = document.querySelector('.popup_img');
 const modalImgItem = document.querySelector('.popup__image');
 const modalImgText = document.querySelector('.popup__image-title');
 const closeImgPopap = document.querySelector('.popup__btn-close_img');
