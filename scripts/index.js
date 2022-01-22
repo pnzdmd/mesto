@@ -31,22 +31,22 @@ const initialCards = [
 const btnEditProfile = document.querySelector('.profile__btn-edit');
 const btnCloseProfile = document.querySelector('.popup__btn-close');
 const popupProfile = document.querySelector('.popup_profile');
-const profName = document.querySelector('.profile__name');
-const profAbout = document.querySelector('.profile__about');
-const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_about');
+const profileName = document.querySelector('.profile__name');
+const profileAbout = document.querySelector('.profile__about');
+const formElementProfile = document.querySelector('.popup__form');
+const nameInputProfile = document.querySelector('.popup__input_type_name');
+const jobInputProfile = document.querySelector('.popup__input_type_about');
 
 
 // изменение карточки
 const cardTemplate = document.querySelector('#template-card');
-const btnAdd = document.querySelector('.profile__btn-add');
+const btnAddCard = document.querySelector('.profile__btn-add');
 const btnCloseCard = document.querySelector('.popup__btn-close_card');
 const popupCard = document.querySelector('.popup_card');
 const cardsContainer = document.querySelector('.elements__list');
 const formPopupCard = document.querySelector('.popup__form_card');
-const nameCard = document.querySelector('.popup__input_type_card');
-const descrCard = document.querySelector('.popup__input_type_descr');
+const profileNameInput = document.querySelector('.popup__input_type_card');
+const profileDescriptionInput = document.querySelector('.popup__input_type_descr');
 
 // попап с увелечением изображений
 const popupImg = document.querySelector('.popup_img');
@@ -68,8 +68,8 @@ function closePopup(popup) {
 
 btnEditProfile.addEventListener('click', () => {
   openPopup(popupProfile);
-  nameInput.value = profName.textContent;
-  jobInput.value = profAbout.textContent;
+  nameInputProfile.value = profileName.textContent;
+  jobInputProfile.value = profileAbout.textContent;
 })
 
 btnCloseProfile.addEventListener('click', () => {
@@ -77,20 +77,20 @@ btnCloseProfile.addEventListener('click', () => {
 })
 
 // изменение данных профиля
-function formSubmitHandler (evt) {
+function handleFormProfile (evt) {
   closePopup(popupProfile);
-  profName.textContent = nameInput.value;
-  profAbout.textContent = jobInput.value;
+  profileName.textContent = nameInputProfile.value;
+  profileAbout.textContent = jobInputProfile.value;
   evt.preventDefault();
 };
-formElement.addEventListener('submit', formSubmitHandler);
+formElementProfile.addEventListener('submit', handleFormProfile);
 
 
 ////////           5 ПРОЕКТ                ///////
 
 
 // открытие модального окна карточки
-btnAdd.addEventListener('click', () => {
+btnAddCard.addEventListener('click', () => {
   openPopup(popupCard)
 })
 
@@ -115,20 +115,20 @@ function renderNewCard(element) {
 //функция добавления карточки
 function addNewCard() {
   const newCard = {
-    name: nameCard.value,
-    link: descrCard.value
+    name: profileNameInput.value,
+    link: profileDescriptionInput.value
   }
   renderCard(newCard);
 }
 // функция открытия попапа карточки
-function formElementCard (evt) {
+function handleFormCard (evt) {
   evt.preventDefault();
   closePopup(popupCard);
   addNewCard();
-  nameCard.value = '';
-  descrCard.value = '';
+  profileNameInput.value = '';
+  profileDescriptionInput.value = '';
 };
-formPopupCard.addEventListener('submit', formElementCard);
+formPopupCard.addEventListener('submit', handleFormCard);
 
 
 function  renderCard(element) {
@@ -136,7 +136,7 @@ function  renderCard(element) {
   cardsContainer.prepend(cardNewElement);
 }
 
-function newCards() {
+function handleNewCards() {
   initialCards.forEach((element) => {
     renderCard(element);
   });
@@ -169,4 +169,4 @@ closeImgPopap.addEventListener('click', ()=> {
   closePopup(popupImg);
 })
 
-newCards();
+handleNewCards();
