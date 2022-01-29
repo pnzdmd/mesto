@@ -59,17 +59,20 @@ const closeImgPopap = document.querySelector('.popup__btn-close_img');
 // функция открытия модального окна профиля
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  addEventListenerPopup(popup)
 }
 
 // функция закрытия модального окна профиля
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  removeEventListenerPopup(popup)
 }
 
 btnEditProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileAbout.textContent;
+  removeError(formElementProfile);
 })
 
 btnCloseProfile.addEventListener('click', () => {
@@ -120,6 +123,7 @@ function addNewCard() {
   }
   renderCard(newCard);
 }
+
 // функция открытия попапа карточки
 function handleFormCard (evt) {
   evt.preventDefault();
@@ -127,6 +131,7 @@ function handleFormCard (evt) {
   addNewCard();
   profileNameInput.value = '';
   profileDescriptionInput.value = '';
+  disableButton(formPopupCard);
 };
 formPopupCard.addEventListener('submit', handleFormCard);
 
@@ -170,3 +175,37 @@ closeImgPopap.addEventListener('click', ()=> {
 })
 
 handleNewCards();
+
+/////////////////////////            6 проект             ///////////////////////////////////
+
+////функция закрытия по ESC
+function closeByEsc(evt) {
+  if(evt.key === 'Escape') {
+    const esc = document.querySelector('.popup_opened');
+    closePopup(esc);
+  }
+}
+////функция закрытия по клику оверлей
+function clickOverlay(evt) {
+  const openPoput = evt.target;
+  if(evt.target === evt.currentTarget) {
+    closePopup(openPoput)
+  }
+}
+
+function addEventListenerPopup(popup) {
+  document.addEventListener('keydown', closeByEsc);
+  popup.addEventListener('click', clickOverlay);
+}
+
+function removeEventListenerPopup(popup) {
+  document.removeEventListener('keydown', closeByEsc);
+  popup.removeEventListener('click', clickOverlay);
+}
+
+// функция активации/деактивации кнопки созранения карточки
+function disableButton(formCard) {
+  const saveButton = formCard.querySelector('.popup__btn-save');
+  saveButton.classList.add('popup__btn-save_card_invalid');
+  saveButton.disabled = true;
+}
