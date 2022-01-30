@@ -72,7 +72,6 @@ btnEditProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileAbout.textContent;
-  removeError(formElementProfile);
 })
 
 btnCloseProfile.addEventListener('click', () => {
@@ -176,7 +175,7 @@ closeImgPopap.addEventListener('click', ()=> {
 
 handleNewCards();
 
-/////////////////////////            6 проект             ///////////////////////////////////
+/////////////////////////     6 проект             ///////////////////////////////////
 
 ////функция закрытия по ESC
 function closeByEsc(evt) {
@@ -205,7 +204,7 @@ function removeEventListenerPopup(popup) {
 
 // функция активации/деактивации кнопки созранения карточки
 function disableButton(formCard) {
-  const saveButton = formCard.querySelector('.popup__btn-save');
-  saveButton.classList.add('popup__btn-save_card_invalid');
-  saveButton.disabled = true;
+  const buttonSave = formCard.querySelector('.popup__btn-save');
+  buttonSave.classList.add('popup__btn-save_card_invalid');
+  buttonSave.disabled = true;
 }

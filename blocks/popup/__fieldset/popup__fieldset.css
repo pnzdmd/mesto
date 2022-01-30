@@ -1,11 +1,5 @@
 .popup__fieldset {
   padding: 0;
-  margin: 35px 0 0;
+  margin: 0;
   border: none;
-}
-
-@media screen and (max-width: 1000px) {
-  .popup__fieldset {
-    margin:0;
-  }
 }
