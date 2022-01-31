@@ -24,7 +24,6 @@ function setEventListeners(form, {inputSelector, submitButtonSelector, inputErro
       errorElement.textContent = input.validationMessage;  // передает span стандартные ошибки
     });
   });
-  toggleButtonState(form, {submitButtonSelector, inputErrorClass});
   form.addEventListener('input', () => {
     toggleButtonState(form, {submitButtonSelector, inputErrorClass});
   });
@@ -37,5 +36,6 @@ function toggleButtonState (form, {submitButtonSelector, inputErrorClass}) {
   button.disabled = isFormValid;
   button.classList.toggle(inputErrorClass, isFormValid);
 }
+
 
 enableValidation(validationObj);
