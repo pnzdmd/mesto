@@ -9,10 +9,7 @@ const validationObj = {
 // функция отмены стандартных действий
 function enableValidation({formSelector, inputSelector, submitButtonSelector, inputErrorClass, errorClass}) {
   const forms = Array.from(document.querySelectorAll(formSelector)); // нашел все формы инпута
-  forms.forEach(form => { // накладываю процесс валидации
-    form.addEventListener('submit', (evt) => {
-      evt.preventDefault(); // отключил отправку формы 
-    });
+  forms.forEach(form => {
     setEventListeners(form, {inputSelector, submitButtonSelector, inputErrorClass, errorClass});
   })
 }
