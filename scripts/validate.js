@@ -24,6 +24,7 @@ function setEventListeners(form, {inputSelector, submitButtonSelector, inputErro
       errorElement.textContent = input.validationMessage;  // передает span стандартные ошибки
     });
   });
+  toggleButtonState(form, {submitButtonSelector, inputErrorClass});
   form.addEventListener('input', () => {
     toggleButtonState(form, {submitButtonSelector, inputErrorClass});
   });

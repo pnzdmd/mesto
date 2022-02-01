@@ -7,7 +7,7 @@ const profileAbout = document.querySelector('.profile__about');
 const formElementProfile = document.querySelector('.popup__form');
 const nameInputProfile = document.querySelector('.popup__input_type_name');
 const jobInputProfile = document.querySelector('.popup__input_type_about');
-
+const popupBtnSave = document.querySelector('.popup__btn-save');
 
 // изменение карточки
 const cardTemplate = document.querySelector('#template-card');
@@ -43,6 +43,8 @@ btnEditProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileAbout.textContent;
+  removeError(formElementProfile);
+  saveBtn(popupBtnSave);
 })
 
 btnCloseProfile.addEventListener('click', () => {
@@ -173,9 +175,28 @@ function removeEventListenerPopup(popup) {
   popup.removeEventListener('click', clickOverlay);
 }
 
-// функция активации/деактивации кнопки созранения карточки
+// функция активации/деактивации кнопки сохранения карточки
 function disableButton(formCard) {
   const buttonSave = formCard.querySelector('.popup__btn-save');
   buttonSave.classList.add('popup__btn-save_card_invalid');
   buttonSave.disabled = true;
 }
+
+
+// функция обнуления ошибок при открытии/закрытии попапа
+ function removeError(formElement) {
+  const remRedLine = Array.from(formElement.querySelectorAll('.popup__input'));
+   remRedLine.forEach(redLine => {
+     redLine.classList.remove('popup__input_invalid');
+   });
+   const removeSpan = Array.from(formElement.querySelectorAll('.error'));
+   removeSpan.forEach(span => {
+     span.textContent = "";
+   });
+ }
+
+
+ function saveBtn(popupBtnSave) {
+  popupBtnSave.classList.remove('popup__btn-save_card_invalid');
+  popupBtnSave.disabled = false;
+ }
