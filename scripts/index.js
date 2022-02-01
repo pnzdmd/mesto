@@ -44,7 +44,7 @@ btnEditProfile.addEventListener('click', () => {
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileAbout.textContent;
   removeError(formElementProfile);
-  saveBtn(popupBtnSave);
+  enableSubmitButton(popupBtnSave);
 })
 
 btnCloseProfile.addEventListener('click', () => {
@@ -196,7 +196,7 @@ function disableButton(formCard) {
  }
 
 
- function saveBtn(popupBtnSave) {
+ function enableSubmitButton(popupBtnSave) {
   popupBtnSave.classList.remove('popup__btn-save_card_invalid');
   popupBtnSave.disabled = false;
  }
