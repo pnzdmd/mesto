@@ -1,6 +1,6 @@
 import { FormValidator } from './FormValidator.js';
-
-
+import { Card } from './Card.js';
+import { initialCards } from './initialCards.js';
 
 // изменение профиля
 const btnEditProfile = document.querySelector('.profile__btn-edit');
@@ -14,7 +14,7 @@ const jobInputProfile = document.querySelector('.popup__input_type_about');
 const popupBtnSave = document.querySelector('.popup__btn-save');
 
 // изменение карточки
-const cardTemplate = document.querySelector('#template-card');
+const cardTemplateSelector = '#template-card';
 const btnAddCard = document.querySelector('.profile__btn-add');
 const btnCloseCard = document.querySelector('.popup__btn-close_card');
 const popupCard = document.querySelector('.popup_card');
@@ -94,18 +94,6 @@ btnCloseCard.addEventListener('click', () => {
   closePopup(popupCard);
 });
 
-//функция создания карточки
-function renderNewCard(element) {
-  const cardElement = cardTemplate.content.cloneNode(true);
-  const cardElementImage = cardElement.querySelector('.element__img');
-  const cardTitle = cardElement.querySelector('.element__title');
-  cardTitle.textContent = element.name;
-  cardElementImage.alt = element.name;
-  cardElementImage.src = element.link;
-
-  setCards(cardElement);
-  return cardElement;
-}
 
 //функция добавления карточки
 function addNewCard() {
@@ -128,30 +116,16 @@ function handleFormCard (evt) {
 formPopupCard.addEventListener('submit', handleFormCard);
 
 
-function  renderCard(element) {
-  const cardNewElement = renderNewCard(element);
-  cardsContainer.prepend(cardNewElement);
+function  renderCard(data) {
+  const card = new Card(data, cardTemplateSelector, openPopupImg); //нужно тчо бы передавался либо name либо link
+  const cardElement = card.renderNewCard();
+  cardsContainer.prepend(cardElement);
 }
 
 function handleNewCards() {
-  initialCards.forEach((element) => {
-    renderCard(element);
+  initialCards.forEach((data) => {
+    renderCard(data);
   });
-}
-
-function setCards(element) {
-  element.querySelector('.element__like-btn').addEventListener('click', handleLikeButton);
-  element.querySelector('.element__img_remove').addEventListener('click', handleDeleteButton);
-  element.querySelector('.element__img').addEventListener('click', openPopupImg);
-}
-
-// функция лайков карточек
-function handleLikeButton(event) {
-  event.target.classList.toggle('element__like-btn_active');
-}
-// функция удаления карточек
-function handleDeleteButton(event) {
-  event.target.closest('.element').remove();
 }
 
 // функция открытия попапа с изображениями
