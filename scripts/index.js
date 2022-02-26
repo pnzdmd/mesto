@@ -1,3 +1,5 @@
+import Card from './cards.js';
+
 // изменение профиля
 const btnEditProfile = document.querySelector('.profile__btn-edit');
 const btnCloseProfile = document.querySelector('.popup__btn-close');
@@ -20,11 +22,37 @@ const profileNameInput = document.querySelector('.popup__input_type_card');
 const profileDescriptionInput = document.querySelector('.popup__input_type_descr');
 
 // попап с увелечением изображений
-const popupImg = document.querySelector('.popup_img');
+/* const popupImg = document.querySelector('.popup_img');
 const modalImgItem = document.querySelector('.popup__image');
 const modalImgText = document.querySelector('.popup__image-title');
-const closeImgPopap = document.querySelector('.popup__btn-close_img');
+const closeImgPopap = document.querySelector('.popup__btn-close_img'); */
 
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
 
 // функция открытия модального окна профиля
@@ -75,7 +103,7 @@ btnCloseCard.addEventListener('click', () => {
 })
 
 //функция создания карточки
-function renderNewCard(element) {
+/* function renderNewCard(element) {
   const cardElement = cardTemplate.content.cloneNode(true);
   const cardElementImage = cardElement.querySelector('.element__img');
   const cardTitle = cardElement.querySelector('.element__title');
@@ -146,7 +174,17 @@ closeImgPopap.addEventListener('click', ()=> {
   closePopup(popupImg);
 })
 
-handleNewCards();
+handleNewCards(); */
+
+//функция добавления карточки
+function addNewCard() {
+  const newCard = {
+    name: profileNameInput.value,
+    link: profileDescriptionInput.value
+  };
+  const cardElement = new Card(newCard, '#template-card').generateCard();
+  renderCard(newCard);
+}
 
 /////////////////////////     6 проект             ///////////////////////////////////
 
