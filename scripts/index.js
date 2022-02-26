@@ -46,7 +46,6 @@ editFormValidation.enableValidation();
 addCardFormValidator.enableValidation();
 
 
-
 // функция открытия модального окна профиля
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -105,13 +104,13 @@ function addNewCard() {
 }
 
 // функция открытия попапа карточки
-function handleFormCard (evt) {
-  evt.preventDefault();
+function handleFormCard () {
   closePopup(popupCard);
   addNewCard();
   profileNameInput.value = '';
   profileDescriptionInput.value = '';
   disableButton(formPopupCard);
+  enableSubmitButton(popupBtnSave);
 }
 formPopupCard.addEventListener('submit', handleFormCard);
 
@@ -176,6 +175,10 @@ function disableButton(formCard) {
   buttonSave.disabled = true;
 }
 
+function enableSubmitButton(popupBtnSave) {
+  popupBtnSave.classList.remove('popup__btn-save_card_invalid');
+  popupBtnSave.disabled = false;
+ }
 
 // функция обнуления ошибок при открытии/закрытии попапа
  function removeError(formElement) {
@@ -187,10 +190,4 @@ function disableButton(formCard) {
    removeSpan.forEach(span => {
      span.textContent = "";
    });
- }
-
-
- function enableSubmitButton(popupBtnSave) {
-  popupBtnSave.classList.remove('popup__btn-save_card_invalid');
-  popupBtnSave.disabled = false;
  }

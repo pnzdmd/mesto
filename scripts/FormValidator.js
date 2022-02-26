@@ -70,6 +70,7 @@ export class FormValidator {
         this._toggleButtonState();
       });
     });
+    this._toggleButtonState()
   }
 
   //метод вызова формы с запуском обработчика
