@@ -1,4 +1,6 @@
-import Card from './cards.js';
+import { FormValidator } from './FormValidator.js';
+
+
 
 // изменение профиля
 const btnEditProfile = document.querySelector('.profile__btn-edit');
@@ -22,49 +24,39 @@ const profileNameInput = document.querySelector('.popup__input_type_card');
 const profileDescriptionInput = document.querySelector('.popup__input_type_descr');
 
 // попап с увелечением изображений
-/* const popupImg = document.querySelector('.popup_img');
+const popupImg = document.querySelector('.popup_img');
 const modalImgItem = document.querySelector('.popup__image');
 const modalImgText = document.querySelector('.popup__image-title');
-const closeImgPopap = document.querySelector('.popup__btn-close_img'); */
+const closeImgPopap = document.querySelector('.popup__btn-close_img');
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
+const validationObj = {
+  formSelector: '.popup__form', // форма попапов
+  inputSelector: '.popup__input', // инпуты форм
+  submitButtonSelector: '.popup__btn-save', // кнопка сохранить в форме
+  inactiveButtonClass: 'popup__btn-save_card_invalid', // убираю кнопку сохранить при ошибке
+  errorClass: 'popup__input_invalid', // подчеркивние инпута красным если есть ошибка
+  inputErrorClass: '.error' // ошиюка в span
+};
+
+const editFormValidation = new FormValidator(validationObj, formElementProfile);
+const addCardFormValidator = new FormValidator(validationObj, formPopupCard);
+//запускаю метод запуска валидации
+editFormValidation.enableValidation();
+addCardFormValidator.enableValidation();
+
 
 
 // функция открытия модального окна профиля
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  addEventListenerPopup(popup)
+  addEventListenerPopup(popup);
 }
 
 // функция закрытия модального окна профиля
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  removeEventListenerPopup(popup)
+  removeEventListenerPopup(popup);
 }
 
 btnEditProfile.addEventListener('click', () => {
@@ -73,11 +65,11 @@ btnEditProfile.addEventListener('click', () => {
   jobInputProfile.value = profileAbout.textContent;
   removeError(formElementProfile);
   enableSubmitButton(popupBtnSave);
-})
+});
 
 btnCloseProfile.addEventListener('click', () => {
   closePopup(popupProfile);
-})
+});
 
 // изменение данных профиля
 function handleFormProfile (evt) {
@@ -85,7 +77,7 @@ function handleFormProfile (evt) {
   profileName.textContent = nameInputProfile.value;
   profileAbout.textContent = jobInputProfile.value;
   evt.preventDefault();
-};
+}
 formElementProfile.addEventListener('submit', handleFormProfile);
 
 
@@ -94,16 +86,16 @@ formElementProfile.addEventListener('submit', handleFormProfile);
 
 // открытие модального окна карточки
 btnAddCard.addEventListener('click', () => {
-  openPopup(popupCard)
-})
+  openPopup(popupCard);
+});
 
 // закрытие модального окна карточки
 btnCloseCard.addEventListener('click', () => {
   closePopup(popupCard);
-})
+});
 
 //функция создания карточки
-/* function renderNewCard(element) {
+function renderNewCard(element) {
   const cardElement = cardTemplate.content.cloneNode(true);
   const cardElementImage = cardElement.querySelector('.element__img');
   const cardTitle = cardElement.querySelector('.element__title');
@@ -120,7 +112,7 @@ function addNewCard() {
   const newCard = {
     name: profileNameInput.value,
     link: profileDescriptionInput.value
-  }
+  };
   renderCard(newCard);
 }
 
@@ -132,7 +124,7 @@ function handleFormCard (evt) {
   profileNameInput.value = '';
   profileDescriptionInput.value = '';
   disableButton(formPopupCard);
-};
+}
 formPopupCard.addEventListener('submit', handleFormCard);
 
 
@@ -172,19 +164,9 @@ function openPopupImg(event) {
 // функция закрытия попапа с изображениями
 closeImgPopap.addEventListener('click', ()=> {
   closePopup(popupImg);
-})
+});
 
-handleNewCards(); */
-
-//функция добавления карточки
-function addNewCard() {
-  const newCard = {
-    name: profileNameInput.value,
-    link: profileDescriptionInput.value
-  };
-  const cardElement = new Card(newCard, '#template-card').generateCard();
-  renderCard(newCard);
-}
+handleNewCards();
 
 /////////////////////////     6 проект             ///////////////////////////////////
 
@@ -199,7 +181,7 @@ function closeByEsc(evt) {
 function clickOverlay(evt) {
   const openPoput = evt.target;
   if(evt.target === evt.currentTarget) {
-    closePopup(openPoput)
+    closePopup(openPoput);
   }
 }
 
