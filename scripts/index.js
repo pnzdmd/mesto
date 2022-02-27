@@ -115,7 +115,7 @@ formPopupCard.addEventListener('submit', handleFormCard);
 
 
 function  renderCard(data) {
-  const card = new Card(data, cardTemplateSelector, openPopupImg); //нужно тчо бы передавался либо name либо link
+  const card = new Card(data, cardTemplateSelector, openPopupImg);
   const cardElement = card.renderNewCard();
   return cardElement;
 }
@@ -128,10 +128,10 @@ function handleNewCards() {
 }
 
 // функция открытия попапа с изображениями
-function openPopupImg(event) {
-  modalImgItem.src = event.target.src;
-  modalImgItem.alt = event.target.alt;
-  modalImgText.textContent = event.target.alt;
+function openPopupImg(name, link) {
+  modalImgItem.src = link;
+  modalImgItem.alt = name;
+  modalImgText.textContent = name;
   openPopup(popupImg);
 }
 // функция закрытия попапа с изображениями
@@ -167,40 +167,3 @@ function removeEventListenerPopup(popup) {
   document.removeEventListener('keydown', closeByEsc);
   popup.removeEventListener('click', clickOverlay);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// функция активации/деактивации кнопки сохранения карточки
-// без нее пустые карточки добавляются
-/* function disableButton(formCard) {
-  const buttonSave = formCard.querySelector('.popup__btn-save');
-  buttonSave.classList.add('popup__btn-save_card_invalid');
-  buttonSave.disabled = true;
-}
-
-function enableSubmitButton(popupBtnSave) {
-  popupBtnSave.classList.remove('popup__btn-save_card_invalid');
-  popupBtnSave.disabled = false;
- }
-
-
-// функция обнуления ошибок при открытии/закрытии попапа
- function removeError(formElement) {
-  const remRedLine = Array.from(formElement.querySelectorAll('.popup__input'));
-   remRedLine.forEach(redLine => {
-     redLine.classList.remove('popup__input_invalid');
-   });
-   const removeSpan = Array.from(formElement.querySelectorAll('.error'));
-   removeSpan.forEach(span => {
-     span.textContent = "";
-   });
- } */
