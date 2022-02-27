@@ -1,9 +1,11 @@
+import { modalImgItem, modalImgText, popupImg } from "./constans.js";
+import { openPopup } from "./utils.js";
+
 export class Card {
-  constructor(data, cardTemplateSelector, openPopupImg) {
+  constructor(data, cardTemplateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._template = cardTemplateSelector;
-    this._openPopupImg = openPopupImg;
   }
 
   _getTemplate = () => {
@@ -19,13 +21,19 @@ export class Card {
     this._cardElement.remove();
   };
 
+  _handlepreviewPicture = () => {
+    modalImgItem.src = this._link;
+    modalImgItem.alt = this._name;
+    modalImgText.textContent = this._name;
+    openPopup(popupImg);
+  };
+
+
   _setEventListeners() {
     this._likeButton.addEventListener('click', this._handleLikeicon);
     this._deleteButton.addEventListener('click', this._handleDeleteCard);
 
-    this._cardImage.addEventListener('click', () => {
-      this._openPopupImg(this._name, this._link);
-    });
+    this._cardImage.addEventListener('click', this._handlepreviewPicture);
   }
 
   _fillCard() {
