@@ -41,7 +41,6 @@ const validationObj = {
 
 const editFormValidation = new FormValidator(validationObj, formElementProfile);
 const addCardFormValidator = new FormValidator(validationObj, formPopupCard);
-//запускаю метод запуска валидации
 editFormValidation.enableValidation();
 addCardFormValidator.enableValidation();
 
@@ -62,8 +61,8 @@ btnEditProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileAbout.textContent;
-  removeError(formElementProfile);
-  enableSubmitButton(popupBtnSave);
+  editFormValidation.toggleButtonState();
+  editFormValidation.removeErrorProfile();
 });
 
 btnCloseProfile.addEventListener('click', () => {
@@ -100,7 +99,8 @@ function addNewCard() {
     name: profileNameInput.value,
     link: profileDescriptionInput.value
   };
-  renderCard(newCard);
+  const cardNewElement = renderCard(newCard);
+  cardsContainer.prepend(cardNewElement);
 }
 
 // функция открытия попапа карточки
@@ -109,8 +109,7 @@ function handleFormCard () {
   addNewCard();
   profileNameInput.value = '';
   profileDescriptionInput.value = '';
-  disableButton(formPopupCard);
-  enableSubmitButton(popupBtnSave);
+  addCardFormValidator.toggleButtonState();
 }
 formPopupCard.addEventListener('submit', handleFormCard);
 
@@ -118,12 +117,13 @@ formPopupCard.addEventListener('submit', handleFormCard);
 function  renderCard(data) {
   const card = new Card(data, cardTemplateSelector, openPopupImg); //нужно тчо бы передавался либо name либо link
   const cardElement = card.renderNewCard();
-  cardsContainer.prepend(cardElement);
+  return cardElement;
 }
 
 function handleNewCards() {
   initialCards.forEach((data) => {
-    renderCard(data);
+    const cardElement = renderCard(data);
+    cardsContainer.prepend(cardElement);
   });
 }
 
@@ -168,8 +168,20 @@ function removeEventListenerPopup(popup) {
   popup.removeEventListener('click', clickOverlay);
 }
 
+
+
+
+
+
+
+
+
+
+
+
 // функция активации/деактивации кнопки сохранения карточки
-function disableButton(formCard) {
+// без нее пустые карточки добавляются
+/* function disableButton(formCard) {
   const buttonSave = formCard.querySelector('.popup__btn-save');
   buttonSave.classList.add('popup__btn-save_card_invalid');
   buttonSave.disabled = true;
@@ -179,6 +191,7 @@ function enableSubmitButton(popupBtnSave) {
   popupBtnSave.classList.remove('popup__btn-save_card_invalid');
   popupBtnSave.disabled = false;
  }
+
 
 // функция обнуления ошибок при открытии/закрытии попапа
  function removeError(formElement) {
@@ -190,4 +203,4 @@ function enableSubmitButton(popupBtnSave) {
    removeSpan.forEach(span => {
      span.textContent = "";
    });
- }
+ } */

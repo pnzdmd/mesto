@@ -33,13 +33,78 @@ export class FormValidator {
     }
   };
 
+  // проверяетполя на валидность
   _hasInvalidInput = () => {
     return this._inputList.some((inputElement) => {
+      console.log('hasInvalidInput проверка на валидность');
       return !inputElement.validity.valid;
     });
   };
 
-  _disableSubmitButton = () => {
+  // новый метод
+  toggleButtonState() {
+    const { inactiveButtonClass }  = this._settings;
+
+    if (this._hasInvalidInput()) {
+      this._buttonElement.setAttribute('disabled', true);
+      this._buttonElement.classList.add(inactiveButtonClass);
+      console.log('не валидное');
+
+    } else {
+      this._buttonElement.classList.remove(inactiveButtonClass);
+      this._buttonElement.removeAttribute('disabled');
+      console.log('валидное');
+    }
+  }
+
+  removeErrorProfile() {
+    this._inputList.forEach(redLine => {
+      redLine.classList.remove('popup__input_invalid');
+      console.log('удалил подчеркивание');
+     });
+     const removeSpan = Array.from(document.querySelectorAll('.error'));
+     removeSpan.forEach(span => {
+      span.textContent = "";
+      console.log('удалили ошибки в спан');
+    });
+  }
+
+  _setEventListeners() {
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', () => {
+        this._checInputValidity(inputElement);
+        this.toggleButtonState();
+        console.log('setevent');
+      });
+    });
+    this._hasInvalidInput();
+    this.toggleButtonState();
+  }
+
+  //метод вызова формы с запуском обработчика
+  enableValidation() {
+    this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
+    this._setEventListeners();
+  }
+}
+
+
+
+/*  disableButton() {
+    const { inactiveButtonClass }  = this._settings;
+
+    this._buttonElement = this._form.querySelector(this._buttonElement);
+    this._buttonElement.classList.add(inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  } */
+
+
+  
+
+ 
+  /* _disableSubmitButton = () => {
     const { inactiveButtonClass }  = this._settings;
 
     this._buttonElement.classList.add(inactiveButtonClass);
@@ -48,7 +113,7 @@ export class FormValidator {
 
   _enableSubmitButton = () => {
     const { inactiveButtonClass }  = this._settings;
-
+    console.log('деактивация кнопки');
     this._buttonElement.classList.remove(inactiveButtonClass);
     this._buttonElement.disabled = false;
   };
@@ -57,29 +122,10 @@ export class FormValidator {
     //если инпут не валидный то кнопка не активна
     if(this._hasInvalidInput()) {
       this._disableSubmitButton();
+      console.log('функция запуска валидации if');
     } else {
       // если кнопка валдина то активна
       this._enableSubmitButton();
+      console.log('функция запуска валидации else');
     }
-  };
-
-  _setEventListeners() {
-    this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', () => {
-        this._checInputValidity(inputElement);
-        this._toggleButtonState();
-      });
-    });
-    this._toggleButtonState()
-  }
-
-  //метод вызова формы с запуском обработчика
-  enableValidation() {
-    //formElement переменная формы, передается через слектор класса
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-
-    this._setEventListeners();
-  }
-}
+  }; */
