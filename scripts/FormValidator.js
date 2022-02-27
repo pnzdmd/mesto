@@ -54,12 +54,8 @@ export class FormValidator {
   }
 
   removeErrorProfile() {
-    this._inputList.forEach(redLine => {
-      redLine.classList.remove('popup__input_invalid');
-     });
-     const removeSpan = Array.from(document.querySelectorAll('.error'));
-     removeSpan.forEach(span => {
-      span.textContent = "";
+    this._inputList.forEach(input => {
+      this._hideInputError(input);
     });
   }
 

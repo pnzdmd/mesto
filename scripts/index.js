@@ -63,6 +63,7 @@ btnEditProfile.addEventListener('click', () => {
   jobInputProfile.value = profileAbout.textContent;
   editFormValidation.toggleButtonState();
   editFormValidation.removeErrorProfile();
+  
 });
 
 btnCloseProfile.addEventListener('click', () => {
