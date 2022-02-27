@@ -76,9 +76,6 @@ export class FormValidator {
 
   //метод вызова формы с запуском обработчика
   enableValidation() {
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
     this._setEventListeners();
   }
 }

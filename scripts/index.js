@@ -104,7 +104,8 @@ function addNewCard() {
 }
 
 // функция открытия попапа карточки
-function handleFormCard () {
+function handleFormCard (evt) {
+  evt.preventDefault();
   closePopup(popupCard);
   addNewCard();
   profileNameInput.value = '';
