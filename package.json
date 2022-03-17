@@ -6,7 +6,7 @@
     "build": "webpack --mode production",
     "dev": "webpack serve"
   },
-  "author": "ilya120",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.5",
