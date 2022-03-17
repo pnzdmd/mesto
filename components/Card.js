@@ -1,11 +1,9 @@
-import { modalImgItem, modalImgText, popupImg } from "./constans.js";
-import { openPopup } from "./utils.js";
-
-export class Card {
-  constructor(data, cardTemplateSelector) {
-    this._name = data.name;
+export default class Card {
+  constructor(data, cardTemplateSelector, handleCardClick) {
+    this._title = data.title;
     this._link = data.link;
     this._template = cardTemplateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate = () => {
@@ -21,28 +19,24 @@ export class Card {
     this._cardElement.remove();
   };
 
-  _handlepreviewPicture = () => {
-    modalImgItem.src = this._link;
-    modalImgItem.alt = this._name;
-    modalImgText.textContent = this._name;
-    openPopup(popupImg);
-  };
-
+  
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', this._handleLikeicon);
     this._deleteButton.addEventListener('click', this._handleDeleteCard);
 
-    this._cardImage.addEventListener('click', this._handlepreviewPicture);
+    this._cardElement.querySelector('.element__img').addEventListener('click', () => {
+      this._handleCardClick(this._title, this._link);
+    });
   }
 
   _fillCard() {
     this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-    this._cardElement.querySelector('.element__title').textContent = this._name;
+    this._cardImage.alt = this._title;
+    this._cardElement.querySelector('.element__title').textContent = this._title;
   }
 
-  renderNewCard() {
+  generateCard() {
     this._cardElement = this._getTemplate();
     
     this._likeButton = this._cardElement.querySelector('.element__like-btn');

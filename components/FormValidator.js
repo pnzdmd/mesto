@@ -73,5 +73,6 @@ export class FormValidator {
   //метод вызова формы с запуском обработчика
   enableValidation() {
     this._setEventListeners();
+    
   }
 }

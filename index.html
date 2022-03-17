@@ -7,18 +7,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 <body>
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/Logo.png" alt="Логотип">
+      <img class="header__logo" src="<%=require("./images/Logo.png")%>" alt="Логотип">
     </header>
 
     <main class="content">
       <section class="profile">
-        <img src="./images/Avatar__Kusto.jpg" alt="Аватар Кусто" class="profile__avatar">
+        <img src="<%=require("./images/Avatar__Kusto.jpg")%>" alt="Аватар Кусто" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__btn-edit" type="button"></button>
@@ -67,7 +66,7 @@
               <span class="error" id="namenew-error"></span>
             </label>
             <label for="" class="popup__label">
-              <input type="url" class="popup__input popup__input_type_descr" id="link" name="subtitle" placeholder="Ссылка на картинку" required>
+              <input type="url" class="popup__input popup__input_type_descr" id="link" name="link" placeholder="Ссылка на картинку" required>
               <span class="error" id="link-error"></span>
             </label>
           </fieldset>
@@ -88,7 +87,7 @@
     <template id="template-card">
       <figure class="element">
         <img src="#" alt="#" class="element__img">
-        <img src="./images/remove_img.png" alt="Удаление изображения" class="element__img_remove">
+        <img src="<%=require("./images/remove_img.png")%>" alt="Удаление изображения" class="element__img_remove">
         <figcaption class="element__group">
           <h2 class="element__title"></h2>
           <div class="element__like">
@@ -100,6 +99,5 @@
 
   </div>
   
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

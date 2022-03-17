@@ -9,27 +9,27 @@ export const validationObj = {
 
 export const initialCards = [
   {
-    name: 'Архыз',
+    title: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-    name: 'Челябинская область',
+    title: 'Челябинская область',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   },
   {
-    name: 'Иваново',
+    title: 'Иваново',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
-    name: 'Камчатка',
+    title: 'Камчатка',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-    name: 'Холмогорский район',
+    title: 'Холмогорский район',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-    name: 'Байкал',
+    title: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
@@ -38,3 +38,11 @@ export const popupImg = document.querySelector('.popup_img');
 export const modalImgItem = document.querySelector('.popup__image');
 export const modalImgText = document.querySelector('.popup__image-title');
 export const closeImgPopap = document.querySelector('.popup__btn-close_img');
+
+export const btnEditProfile = document.querySelector('.profile__btn-edit');
+export const formElementProfile = document.querySelector('.popup__form');
+export const nameInputProfile = document.querySelector('.popup__input_type_name');
+export const jobInputProfile = document.querySelector('.popup__input_type_about');
+export const btnAddCard = document.querySelector('.profile__btn-add');
+export const cardsContainer = '.elements__list';
+export const formPopupCard = document.querySelector('.popup__form_card');
