@@ -34,13 +34,13 @@ const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '
 const popupImage = new PopupWithImage('.popup_img');
 
 // Открытие попапа с изображением
-function handlepreviewPicture(title, link) {
+function handlePreviewPicture(title, link) {
   popupImage.open({ name: title, link: link });
 }
 
 // Создание экземпляра карточки
 function createCard(item) {
-  const card = new Card(item, '#template-card', handlepreviewPicture);
+  const card = new Card(item, '#template-card', handlePreviewPicture);
   const addedCard = card.generateCard();
   return addedCard;
 }
@@ -93,7 +93,7 @@ btnEditProfile.addEventListener('click', () => {
   const currentUserInfo = userInfo.getUserInfo();
   fillProfilePopup(currentUserInfo);
   editFormValidation.toggleButtonState();
-  editFormValidation.removeErrorProfile();
+  editFormValidation.removeErrors();
   popupWithProfileForm.open();
 });
 
