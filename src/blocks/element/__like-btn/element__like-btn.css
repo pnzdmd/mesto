@@ -3,6 +3,7 @@
   width: 22px;
   height: 19px;
   border: none;
+  margin: 0 0 3px;
   background-color: #FFFFFF;
   cursor: pointer;
   transition: .8s;

@@ -17,7 +17,10 @@
 
     <main class="content">
       <section class="profile">
-        <img src="<%=require("./images/Avatar__Kusto.jpg")%>" alt="Аватар Кусто" class="profile__avatar">
+        <div class="profile__avatar-container">
+          <img src="<%=require("./images/Avatar__Kusto.jpg")%>" alt="Аватар Кусто" class="profile__avatar">
+          <button class="profile__avatar-edit profile__edit-button_type_avatar" type="button" title="Обновить аватар"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__btn-edit" type="button"></button>
@@ -76,6 +79,34 @@
       </div>
     </div>
 
+    <div class="popup popup_card">
+      <div class="popup__container ">
+        <form class="popup__form popup__form_card" name="profile" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button class="popup__btn-save popup__btn-confirm" type="submit">Да</button>
+        </form>
+        <button class="popup__btn-close popup__btn-close_card" type="button"></button>
+      </div>
+    </div>
+
+
+    <div class="popup popup_card">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_card" name="profile" novalidate>
+          <fieldset class="popup__fieldset">
+            <label for="" class="popup__label">
+              <input type="url" class="popup__input popup__input_type_descr" id="link" name="link" placeholder="Ссылка на картинку" required>
+              <span class="error" id="link-error"></span>
+            </label>
+          </fieldset>
+          <button class="popup__btn-save popup__btn-save_card_invalid" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__btn-close popup__btn-close_card" type="button"></button>
+      </div>
+    </div>
+
+    
     <div class="popup popup_img">
       <div class="popup__image-container">
         <img src="#" alt="#" class="popup__image">
@@ -92,6 +123,7 @@
           <h2 class="element__title"></h2>
           <div class="element__like">
             <button class="element__like-btn" type="button"></button>
+            <p class="element__like-count">0</p>
           </div>
         </figcaption>
       </figure>
