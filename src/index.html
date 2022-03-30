@@ -18,13 +18,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__avatar-container">
-          <img src="<%=require("./images/Avatar__Kusto.jpg")%>" alt="Аватар Кусто" class="profile__avatar">
+          <img src="#" alt="Аватар Кусто" class="profile__avatar">
           <button class="profile__avatar-edit profile__edit-button_type_avatar" type="button" title="Обновить аватар"></button>
         </div>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button class="profile__btn-edit" type="button"></button>
-          <p class="profile__about">Исследователь океана</p>
+          <p class="profile__about"></p>
         </div>
         <button class="profile__btn-add" type="button"></button>
       </section>
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="popup popup_card">
+    <div class="popup popup_type_confirmation">
       <div class="popup__container ">
         <form class="popup__form popup__form_card" name="profile" novalidate>
           <h2 class="popup__title">Вы уверены?</h2>
@@ -90,7 +90,7 @@
     </div>
 
 
-    <div class="popup popup_card">
+    <div class="popup popup_type_avatar">
       <div class="popup__container">
         <h2 class="popup__title">Обновить аватар</h2>
         <form class="popup__form popup__form_card" name="profile" novalidate>
@@ -115,7 +115,7 @@
       </div>
     </div>
 
-    <template id="template-card">
+    <template id="template-card-owner">
       <figure class="element">
         <img src="#" alt="#" class="element__img">
         <img src="<%=require("./images/remove_img.png")%>" alt="Удаление изображения" class="element__img_remove">
@@ -128,6 +128,27 @@
         </figcaption>
       </figure>
     </template>
+
+    <template id="template-card-viewer">
+      <figure class="element">
+        <img src="#" alt="#" class="element__img">
+        <figcaption class="element__group">
+          <h2 class="element__title"></h2>
+          <div class="element__like">
+            <button class="element__like-btn" type="button"></button>
+            <p class="element__like-count">0</p>
+          </div>
+        </figcaption>
+      </figure>
+    </template>
+
+    <div class="popup-error">
+      <div class="popup-error__container">
+        <p class="popup-error__title">К сожалению, при выполнении запроса произошла ошибка.</p>
+        <p class="popup-error__description"></p>
+        <p class="popup-error__code"></p>
+      </div>
+    </div>
 
   </div>
   
