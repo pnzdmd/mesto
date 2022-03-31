@@ -1,8 +1,9 @@
 import './index.css';
 
-
 import {
   validationObj,
+  token,
+  cohort38,
   profileName,
   profileDescription,
   profileAvatar,
@@ -20,14 +21,24 @@ import {
   cardsContainer
 } from '../utils/constans.js';
 
-
-import { api } from '../components/Api.js';
+import Api from '../components/Api.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
+
+
+const api = new Api({
+  baseUrl: cohort38,
+  headers: {
+    authorization: token,
+    'Content-Type': 'application/json'
+  }
+});
+
+
 
 // Валидация формы профиля
 const editFormValidation = new FormValidator(validationObj, popupFormEdit);

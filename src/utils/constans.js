@@ -8,6 +8,10 @@ export const validationObj = {
   inputErrorClass: '.error' // ошиюка в span
 };
 
+// Данные Api
+
+export const token = '0fe6e8d3-db28-4506-b622-fef597981f88';
+export const cohort38 = 'https://mesto.nomoreparties.co/v1/cohort-38';
 
 // Модальные окна
 export const popupAddCard = '.popup_card';
