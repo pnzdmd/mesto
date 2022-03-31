@@ -1,14 +1,21 @@
 .profile__avatar-edit {
-  background: rgba(0, 0, 0) url(../../../images/btn-edit-avatar.svg) center / 24px no-repeat;
-  border: #fff solid 1px;
-  box-sizing: border-box;
-  opacity: 1;
-  transition: opacity 1s ease; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: rgba(0, 0, 0);
+  background-image: url(../../../images/btn-edit-avatar.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease, background-color 1s ease;
 }
 
 .profile__avatar-edit:hover {
-  opacity: .6;
-  transition: opacity 1s ease;
+  opacity: .8;
+  transition: opacity 1s ease, background-color 1s ease;
   cursor: pointer;
 }
 
