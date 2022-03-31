@@ -18,7 +18,7 @@
     <main class="content">
       <section class="profile">
         <div class="profile__avatar-container">
-          <img src="#" alt="Аватар Кусто" class="profile__avatar">
+          <img src="#" alt="Аватар" class="profile__avatar">
           <button class="profile__avatar-edit" type="button" title="Обновить аватар"></button>
         </div>
         <div class="profile__info">
@@ -42,15 +42,15 @@
     <div class="popup popup_profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="profile" novalidate>
+        <form class="popup__form popup__form_profile" name="profile" novalidate>
           <fieldset class="popup__fieldset">
             <label for="" class="popup__label">
-              <input type="text" class="popup__input popup__input_type_name" id="name" name="title" placeholder="Имя" minlength="2" maxlength="40" required>
-              <span class="error" id="name-error"></span>
+              <input type="text" class="popup__input popup__input_type_name" id="firstname" name="firstname" placeholder="Имя" minlength="2" maxlength="40" required>
+              <span class="error" id="firstname-error"></span>
             </label>
             <label for="" class="popup__label">
-              <input type="text" class="popup__input popup__input_type_about" id="text" name="subtitle" placeholder="Профессия" minlength="2" maxlength="200" required>
-              <span class="error" id="text-error"></span>
+              <input type="text" class="popup__input popup__input_type_about" id="description" name="description" placeholder="Профессия" minlength="2" maxlength="200" required>
+              <span class="error" id="description-error"></span>
             </label>
           </fieldset>
           <button class="popup__btn-save" type="submit">Сохранить</button>
@@ -65,11 +65,11 @@
         <form class="popup__form popup__form_card" name="profile" novalidate>
           <fieldset class="popup__fieldset">
             <label for="" class="popup__label">
-              <input type="text" class="popup__input popup__input_type_card" id="namenew" name="title" placeholder="Название" minlength="2" maxlength="30" required>
-              <span class="error" id="namenew-error"></span>
+              <input type="text" class="popup__input popup__input_type_card" id="img" name="name-img" placeholder="Название" minlength="2" maxlength="30" required>
+              <span class="error" id="img-error"></span>
             </label>
             <label for="" class="popup__label">
-              <input type="url" class="popup__input popup__input_type_descr" id="link" name="link" placeholder="Ссылка на картинку" required>
+              <input type="url" class="popup__input popup__input_type_descr" id="link" name="link-img" placeholder="Ссылка на картинку" required>
               <span class="error" id="link-error"></span>
             </label>
           </fieldset>
@@ -81,7 +81,7 @@
 
     <div class="popup popup_type_confirmation">
       <div class="popup__container ">
-        <form class="popup__form popup__form_card" name="profile" novalidate>
+        <form class="popup__form popup__form_delete-confirm" name="profile" novalidate>
           <h2 class="popup__title">Вы уверены?</h2>
           <button class="popup__btn-save popup__btn-confirm" type="submit">Да</button>
         </form>
@@ -92,10 +92,10 @@
     <div class="popup popup_type_avatar">
       <div class="popup__container">
         <h2 class="popup__title">Обновить аватар</h2>
-        <form class="popup__form popup__form_card" name="profile" novalidate>
+        <form class="popup__form popup__form_avatar" name="profile" novalidate>
           <fieldset class="popup__fieldset">
             <label for="" class="popup__label">
-              <input type="url" class="popup__input popup__input_type_descr" id="avatar" name="link" placeholder="Ссылка на картинку" required>
+              <input type="url" class="popup__input popup__input_type_descr" id="avatar" name="link-avatar" placeholder="Ссылка на картинку" required>
               <span class="error" id="avatar-error"></span>
             </label>
           </fieldset>
@@ -126,27 +126,6 @@
         </figcaption>
       </figure>
     </template>
-
-    <template id="template-card-viewer">
-      <figure class="element">
-        <img src="#" alt="#" class="element__img">
-        <figcaption class="element__group">
-          <h2 class="element__title"></h2>
-          <div class="element__like">
-            <button class="element__like-btn" type="button"></button>
-            <p class="element__like-count">0</p>
-          </div>
-        </figcaption>
-      </figure>
-    </template>
-
-    <div class="popup-error">
-      <div class="popup-error__container">
-        <p class="popup-error__title">К сожалению, при выполнении запроса произошла ошибка.</p>
-        <p class="popup-error__description"></p>
-        <p class="popup-error__code"></p>
-      </div>
-    </div>
 
   </div>
   

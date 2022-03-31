@@ -56,10 +56,3 @@
 @import url(../blocks/popup/__btn-confirm/popup__btn-confirm.css);
 
 @import url(../blocks/error/error.css);
-
-@import url(../blocks/popup-error/popup-error.css);
-@import url(../blocks/popup-error/__code/popup-error__code.css);
-@import url(../blocks/popup-error/__container/popup-error__container.css);
-@import url(../blocks/popup-error/__description/popup-error__description.css);
-@import url(../blocks/popup-error/__title/popup-error__title.css);
-@import url(../blocks/popup-error/_opened/popup-error_opened.css);

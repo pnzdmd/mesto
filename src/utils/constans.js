@@ -9,37 +9,35 @@ export const validationObj = {
 };
 
 
-//Данные Api
-export const cohort38 = 'https://mesto.nomoreparties.co/v1/cohort-38';
-export const token = '0fe6e8d3-db28-4506-b622-fef597981f88';
+// Модальные окна
+export const popupAddCard = '.popup_card';
+export const popupEditProfile = '.popup_profile';
+export const popupImage = '.popup_img';
+export const popupConfirm = '.popup_type_confirmation';
+export const popupAvatarSelector = '.popup_type_avatar';
+
+// Формы
+export const popupFormEdit = document.querySelector('.popup__form_profile');
+export const popupFormAdd = document.querySelector('.popup__form_card');
+export const popupFormConfirm = document.querySelector('.popup__form_delete-confirm');
+export const popupFormAvatar = document.querySelector('.popup__form_avatar');
+
+// Кнопки
+export const btnEditProfile = document.querySelector('.profile__btn-edit');
+export const btnAddCard =  document.querySelector('.profile__btn-add');
+export const btnProfileAvatar = document.querySelector('.profile__avatar-edit');
+
+// Инпуты
+export const popupName = document.querySelector('.popup__input_type_name');
+export const popupDescription = document.querySelector('.popup__input_type_about');
+export const popupNameImg = document.querySelector('.popup__input_type_card');
+export const popupNameLink = document.querySelector('.popup__input_type_descr');
 
 
-// Расположение карточек
-export const cardsContainer = '.elements__list';
+export const profileName = '.profile__name';
+export const profileDescription = '.profile__about';
+export const profileAvatar = '.profile__avatar';
 
 
-// Кнопки редактирования
-const profile = document.querySelector('.profile');
-export const btnEditProfile = profile.querySelector('.profile__btn-edit');
-export const btnAddCard = profile.querySelector('.profile__btn-add');
-export const profileAvatar = profile.querySelector('.profile__avatar-container');
-
-
-// Редактирование профиля
-const popupProfile = document.querySelector('.popup_profile');
-const popupProfileContainer = popupProfile.querySelector('.popup__container');
-export const formElementProfile = popupProfileContainer.querySelector('.popup__form');
-export const nameInputProfile = popupProfileContainer.querySelector('.popup__input_type_name');
-export const jobInputProfile = popupProfileContainer.querySelector('.popup__input_type_about');
-
-
-// Добавление карточек
-const popupCards = document.querySelector('.popup_card');
-const popupCardsContainer = popupCards.querySelector('.popup__container');
-export const formElementCards = popupCardsContainer.querySelector('.popup__form');
-
-
-
-// Аватарка
-const popupAvatar = document.querySelector('.popup_type_avatar');
-export const popupAvatarForm = popupAvatar.querySelector('.popup__container');
+// Контейнер
+export const cardsContainer = document.querySelector('.elements__list');

@@ -1,62 +1,70 @@
-export default class Api {
-  constructor ({baseUrl, headers}) {
-    this._baseUrl = baseUrl;
+class Api {
+  constructor({ baseUrl, headers }) {
     this._headers = headers;
+    this._baseUrl = baseUrl;
   }
 
   _checkResponse(res) {
     if (res.ok) {
-      return res.json();
+      return res.json()
     }
-    return Promise.reject(res);
+    else {
+      return Promise.reject(res.status)
+    }
   }
-  
-  getCurrentUser() {
+
+  getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
-      method: 'GET',
       headers: this._headers
     })
-      .then(res => this. _checkResponse(res));
+    .then(this._checkResponse)
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      method: 'GET',
       headers: this._headers
     })
-      .then(res => this. _checkResponse(res));
+    .then(this._checkResponse)
   }
 
-  updateUserProfile(name, about) {
+  editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about
+        name,
+        about
       })
     })
-      .then(res => this. _checkResponse(res));
+    .then(this._checkResponse)
   }
 
-  addNewCard(name, link) {
+  addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link
+        name,
+        link
       })
     })
-      .then(res => this. _checkResponse(res))
+    .then(this._checkResponse)
   }
 
-  removeCard(id) {
+  deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(res => this. _checkResponse(res))
+    .then(this._checkResponse)
+  }
+
+  deleteLike(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+    .then(this._checkResponse)
   }
 
   addLike(id) {
@@ -64,25 +72,25 @@ export default class Api {
       method: 'PUT',
       headers: this._headers
     })
-      .then(res => this. _checkResponse(res))
+    .then(this._checkResponse)
   }
 
-  removeLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-      .then(res => this. _checkResponse(res))
-  }
-
-  updateAvatar(link) {
+  setAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: link
+        avatar
       })
     })
-      .then(res => this. _checkResponse(res))
+    .then(this._checkResponse)
   }
 }
+
+export const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-38',
+  headers: {
+    authorization: '0fe6e8d3-db28-4506-b622-fef597981f88',
+    'Content-Type': 'application/json'
+  }
+});
