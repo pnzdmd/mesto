@@ -51,7 +51,7 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-  deleteCard(id) {
+  removeCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers
@@ -59,7 +59,7 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-  deleteLike(id) {
+  removeLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: this._headers
@@ -75,7 +75,7 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-  setAvatar(avatar) {
+  updateAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,

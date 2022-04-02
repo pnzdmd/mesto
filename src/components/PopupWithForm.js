@@ -25,7 +25,7 @@ export default class PopupWithForm extends Popup {
     this._submitHandler = newSubmitHandler;
   }
 
-  renderingLoad(isLoading){
+  displayLoadingStatus(isLoading){
     if(isLoading){
       this._savingButton.textContent = 'Сохранение...';
     }

@@ -1,6 +1,6 @@
 export default class Card {
-  constructor(name, link, likes, id, userId, ownerId, cardTemplateSelector, { cardClick , delClick, likeClick }) {
-    this._name = name;
+  constructor(title, link, likes, id, userId, ownerId, cardTemplateSelector, { cardClick , delClick, likeClick }) {
+    this._title = title;
     this._link = link;
     this._likes = likes;
     this._id = id;
@@ -13,16 +13,16 @@ export default class Card {
   }
 
   isLiked() {
-    const userHasLikedCard = this._likes.find(user => user._id === this._userId);
-    return userHasLikedCard;
+    const userLikedCard = this._likes.find(user => user._id === this._userId);
+    return userLikedCard;
   }
 
   _addLike = () => {
-    this._buttonLike.classList.add('element__like-btn_active');
+    this._cardLikeBtn.classList.add('element__like-btn_active');
   }
 
   _removeLike = () => {
-    this._buttonLike.classList.remove('element__like-btn_active');
+    this._cardLikeBtn.classList.remove('element__like-btn_active');
   }
 
   delImage  ()  {
@@ -31,7 +31,7 @@ export default class Card {
 
   setLike(newLikes) {
     this._likes = newLikes;
-    this._likeCountElememnt.textContent = this._likes.length;
+    this._cardLikeCount.textContent = this._likes.length;
 
     if(this.isLiked()) {
       this._addLike();
@@ -43,15 +43,15 @@ export default class Card {
 
   createCard = () => {
     this._cardElement = this._template.querySelector('.element').cloneNode(true);
-    this._cardImg = this._cardElement.querySelector('.element__img');
+    this._cardImage = this._cardElement.querySelector('.element__img');
     this._cardText = this._cardElement.querySelector('.element__title');
-    this._buttonLike = this._cardElement.querySelector('.element__like-btn');
+    this._cardLikeBtn = this._cardElement.querySelector('.element__like-btn');
     this._buttonDel = this._cardElement.querySelector('.element__img_remove');
-    this._likeCountElememnt = this._cardElement.querySelector('.element__like-count');
+    this._cardLikeCount = this._cardElement.querySelector('.element__like-count');
     
-    this._cardText.textContent = this._name;
-    this._cardImg.src = this._link;
-    this._cardImg.alt = this._name;
+    this._cardText.textContent = this._title;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._title;
 
     this._setEventListeners();
 
@@ -65,8 +65,8 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._cardImg.addEventListener('click', () => { this._cardClick(this._name, this._link) });
-    this._buttonLike.addEventListener('click', () => { this._likeClick(this._id) });
+    this._cardImage.addEventListener('click', () => { this._cardClick(this._title, this._link) });
+    this._cardLikeBtn.addEventListener('click', () => { this._likeClick(this._id) });
     this._buttonDel.addEventListener('click', () => { this._delClick(this._id) });
   }
 }

@@ -16,7 +16,7 @@ export const cohort38 = 'https://mesto.nomoreparties.co/v1/cohort-38';
 // Модальные окна
 export const popupAddCard = '.popup_card';
 export const popupEditProfile = '.popup_profile';
-export const popupImage = '.popup_img';
+export const popupImg = '.popup_img';
 export const popupConfirm = '.popup_type_confirmation';
 export const popupAvatarSelector = '.popup_type_avatar';
 
